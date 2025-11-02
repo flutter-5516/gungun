@@ -32,9 +32,17 @@ function handleLogin(event) {
     );
     if (userExists) 
     {
+        const loginData = {
+            ...userExists,
+            loginTime: new Date().getTime(),
+            sessionExpiry: new Date().getTime() + (7 * 24 * 60 * 60 * 1000) 
+        };
+        
         localStorage.setItem('hasVisited', 'true');
         localStorage.setItem('userLoggedIn', 'true');
-        localStorage.setItem('currentUser', JSON.stringify(userExists));
+        localStorage.setItem('currentUser', JSON.stringify(loginData));
+        localStorage.setItem('sessionActive', 'true');
+        
         alert('Login successful! Welcome to Sehyogsetu');
         window.location.href = 'index.html';
     } else 

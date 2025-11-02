@@ -25,7 +25,6 @@
                     <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                     <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                 </svg>
-                <div class="notification-badge">3</div>
             </div>
             <div class="user-dropdown">
                 <div class="user-avatar" onclick="toggleUserDropdown()" id="userAvatar">U</div>
@@ -360,12 +359,16 @@
     </div>
 
     <script>
-        // Check if user is logged in
-        if (!localStorage.getItem('userLoggedIn')) {
-            window.location.href = 'login.html';
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof SessionManager !== 'undefined') {
+                SessionManager.requireAuth();
+            } else {
+                if (!localStorage.getItem('userLoggedIn')) {
+                    window.location.href = 'login.html';
+                }
+            }
+        });
         
-        // Initialize user avatar
         window.onload = function() {
             const currentUser = JSON.parse(localStorage.getItem('currentUser'));
             if (currentUser) {
@@ -380,10 +383,12 @@
         function logout() {
             localStorage.removeItem('userLoggedIn');
             localStorage.removeItem('currentUser');
+            localStorage.removeItem('sessionActive');
+            
+            alert('You have been logged out successfully!');
             window.location.href = 'login.html';
         }
         
-        // Close dropdown when clicking outside
         window.onclick = function(event) {
             if (!event.target.matches('.user-avatar')) {
                 const dropdown = document.getElementById('userDropdownMenu');
@@ -393,6 +398,7 @@
             }
         }
     </script>
+    <script src="session.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
