@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sehyogsetu - Smart Civic Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Sehyogsetu Logo" class="logo-img">
+            <span>Sehyogsetu</span>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="header-right">
+            <div class="notification-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                <div class="notification-badge">3</div>
+            </div>
+            <div class="user-dropdown">
+                <div class="user-avatar" onclick="toggleUserDropdown()" id="userAvatar">U</div>
+                <div class="dropdown-menu" id="userDropdownMenu">
+                    <button onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <button class="nav-item active" onclick="showSection('dashboard')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    </svg>
+                    Dashboard
+                </button>
+                <button class="nav-item" onclick="showSection('reports')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                    My Reports
+                </button>
+                <button class="nav-item" onclick="showSection('learn')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    Learn
+                </button>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div id="dashboard-section">
+                <div class="welcome-banner">
+                    <h2>Welcome back! 👋</h2>
+                    <p class="tagline">Your Bridge to Better Community</p>
+                    <p>Let's make our city better together</p>
+                </div>
+
+                <div class="categories-grid">
+                    <div class="category-card" onclick="openReportModal('waste')">
+                        <div class="category-icon waste">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            </svg>
+                        </div>
+                        <div class="category-name">Waste Pickup</div>
+                    </div>
+
+                    <div class="category-card" onclick="openReportModal('animal')">
+                        <div class="category-icon animal">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                            </svg>
+                        </div>
+                        <div class="category-name">Animal Welfare</div>
+                    </div>
+
+                    <div class="category-card" onclick="openReportModal('streetlight')">
+                        <div class="category-icon streetlight">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                            </svg>
+                        </div>
+                        <div class="category-name">Streetlight Issue</div>
+                    </div>
+
+                    <div class="category-card" onclick="openReportModal('road')">
+                        <div class="category-icon road">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            </svg>
+                        </div>
+                        <div class="category-name">Road Damage</div>
+                    </div>
+
+                    <div class="category-card" onclick="openReportModal('drainage')">
+                        <div class="category-icon drainage">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="category-name">Drainage Problem</div>
+                    </div>
+                </div>
+
+                <div class="pickup-schedule">
+                    <div class="section-header">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        </svg>
+                        Upcoming Pickups
+                    </div>
+                    <div class="pickup-item">
+                        <div class="pickup-info">
+                            <h4>Monday</h4>
+                            <p>Wet Waste</p>
+                        </div>
+                        <div class="pickup-time">7:00 AM</div>
+                    </div>
+                    <div class="pickup-item">
+                        <div class="pickup-info">
+                            <h4>Wednesday</h4>
+                            <p>Dry Waste</p>
+                        </div>
+                        <div class="pickup-time">7:00 AM</div>
+                    </div>
+                    <div class="pickup-item">
+                        <div class="pickup-info">
+                            <h4>Friday</h4>
+                            <p>Recyclables</p>
+                        </div>
+                        <div class="pickup-time">8:00 AM</div>
+                    </div>
+                </div>
+                <div class="quick-stats">
+                    <div class="stat-box">
+                        <div class="stat-icon" style="background: #7cb342;">🌱</div>
+                        <div class="stat-content">
+                            <h4>Eco-Friendly</h4>
+                            <p>Help reduce waste in your community</p>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon" style="background: #ff9800;">⚡</div>
+                        <div class="stat-content">
+                            <h4>Quick Response</h4>
+                            <p>Issues resolved within 24-48 hours</p>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-icon" style="background: #2196f3;">🔔</div>
+                        <div class="stat-content">
+                            <h4>Stay Updated</h4>
+                            <p>Get real-time notifications on progress</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="impact-banner">
+                    <div class="impact-content">
+                        <h3>🌟 Make an Impact Today!</h3>
+                        <p>Every report you make helps build a cleaner, safer, and better community for everyone. Be the change you want to see!</p>
+                        <button onclick="openReportModal('')" class="impact-btn">Report an Issue Now</button>
+                    </div>
+                </div>
+            </div>
+            <div id="reports-section" class="hidden">
+                <h2 style="margin-bottom: 2rem;">My Reports</h2>
+                <div class="reports-list">
+                    <div class="report-card">
+                        <div class="report-header">
+                            <div class="report-title">
+                                <h3>Garbage Not Collected</h3>
+                                <div class="report-location">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    </svg>
+                                    Sector 15, Main Road
+                                </div>
+                            </div>
+                            <div class="status-badge in-progress">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                </svg>
+                                In Progress
+                            </div>
+                        </div>
+                        <div class="report-footer">
+                            <span class="report-date">2025-10-28</span>
+                            <a href="#" class="view-details">View Details →</a>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-header">
+                            <div class="report-title">
+                                <h3>Injured Stray Dog</h3>
+                                <div class="report-location">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    </svg>
+                                    Park Avenue
+                                </div>
+                            </div>
+                            <div class="status-badge completed">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                </svg>
+                                Completed
+                            </div>
+                        </div>
+                        <div class="report-footer">
+                            <span class="report-date">2025-10-25</span>
+                            <a href="#" class="view-details">View Details →</a>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-header">
+                            <div class="report-title">
+                                <h3>Broken Street Light</h3>
+                                <div class="report-location">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    </svg>
+                                    MG Road Junction
+                                </div>
+                            </div>
+                            <div class="status-badge pending">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                </svg>
+                                Pending
+                            </div>
+                        </div>
+                        <div class="report-footer">
+                            <span class="report-date">2025-10-29</span>
+                            <a href="#" class="view-details">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="learn-section" class="hidden">
+                <h2 style="margin-bottom: 2rem;">Learn & Awareness</h2>
+                <div class="learn-content">
+                    <div class="learn-card">
+                        <h3>Waste Segregation Guide</h3>
+                        <div class="waste-types">
+                            <div class="waste-type wet">
+                                <div class="waste-icon wet">W</div>
+                                <div class="waste-details">
+                                    <h4>Wet Waste</h4>
+                                    <p>Food scraps, vegetable peels, garden waste</p>
+                                </div>
+                            </div>
+                            <div class="waste-type dry">
+                                <div class="waste-icon dry">D</div>
+                                <div class="waste-details">
+                                    <h4>Dry Waste</h4>
+                                    <p>Paper, cardboard, plastic packaging, metal cans</p>
+                                </div>
+                            </div>
+                            <div class="waste-type hazardous">
+                                <div class="waste-icon hazardous">H</div>
+                                <div class="waste-details">
+                                    <h4>Hazardous Waste</h4>
+                                    <p>Batteries, electronics, chemicals, medical waste</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learn-card">
+                        <h3>Animal Welfare Tips</h3>
+                        <ul class="tips-list">
+                            <li>
+                                <div class="tip-icon">❤</div>
+                                <p>Report injured animals immediately with photo and location</p>
+                            </li>
+                            <li>
+                                <div class="tip-icon">❤</div>
+                                <p>Provide water bowls for stray animals during summer</p>
+                            </li>
+                            <li>
+                                <div class="tip-icon">❤</div>
+                                <p>Never feed animals near roads or busy areas</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <button class="fab" onclick="openReportModal('')">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+        </svg>
+    </button>
+    <div class="modal-overlay" id="reportModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Report Issue</h3>
+                <button class="close-btn" onclick="closeReportModal()">×</button>
+            </div>
+            <form id="reportForm">
+                <div class="form-group">
+                    <label>Issue Category</label>
+                    <select id="categorySelect">
+                        <option value="">Select Category</option>
+                        <option value="waste">Waste Pickup</option>
+                        <option value="animal">Animal Welfare</option>
+                        <option value="streetlight">Streetlight Issue</option>
+                        <option value="road">Road Damage</option>
+                        <option value="drainage">Drainage Problem</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea placeholder="Describe the issue in detail..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Photo</label>
+                    <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                        <p>Click to upload image</p>
+                        <img id="imagePreview" class="hidden" alt="Preview">
+                    </div>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="previewImage(event)">
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <div class="location-display">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>Using current location</span>
+                    </div>
+                </div>
+                <button type="button" class="submit-btn" onclick="submitReport()">Submit Report</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is logged in
+        if (!localStorage.getItem('userLoggedIn')) {
+            window.location.href = 'login.html';
+        }
+        
+        // Initialize user avatar
+        window.onload = function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                document.getElementById('userAvatar').textContent = currentUser.fullName.charAt(0).toUpperCase();
+            }
+        };
+        
+        function toggleUserDropdown() {
+            document.getElementById('userDropdownMenu').classList.toggle('show');
+        }
+        
+        function logout() {
+            localStorage.removeItem('userLoggedIn');
+            localStorage.removeItem('currentUser');
+            window.location.href = 'login.html';
+        }
+        
+        // Close dropdown when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.user-avatar')) {
+                const dropdown = document.getElementById('userDropdownMenu');
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Sehyogsetu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Sehyogsetu Logo" class="logo-img">
+            <span>Sehyogsetu</span>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="contact.html" class="nav-link active">Contact</a>
+        </nav>
+        <div class="header-right">
+            <div class="notification-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                <div class="notification-badge">3</div>
+            </div>
+            <div class="user-dropdown">
+                <div class="user-avatar" onclick="toggleUserDropdown()" id="userAvatar">U</div>
+                <div class="dropdown-menu" id="userDropdownMenu">
+                    <button onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <div class="page-hero">
+            <h1>Contact Us</h1>
+            <p>We're here to help build better communities together</p>
+        </div>
+
+        <div class="page-content">
+            <div class="contact-intro">
+                <h2>We'd Love to Hear From You!</h2>
+                <p>Whether you have questions, suggestions, feedback, or need assistance with reporting an issue, our team is here to support you in making your community better. Fill out the form below and we'll respond as soon as possible.</p>
+            </div>
+
+            <div class="contact-container-full">
+                <div class="contact-form-section-full">
+                    <div class="form-header">
+                        <h2>Send Us a Message</h2>
+                        <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                    </div>
+                    <form class="contact-form" onsubmit="handleContactSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" placeholder="Enter your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone Number (Optional)</label>
+                            <input type="tel" placeholder="Enter your phone number">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <select required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="bug">Report a Bug</option>
+                                <option value="suggestion">Feature Suggestion</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="6" placeholder="Write your message here..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <section class="why-contact-section">
+                <h2>How We Can Help You</h2>
+                <div class="help-grid">
+                    <div class="help-card">
+                        <div class="help-icon" style="background: linear-gradient(135deg, #7cb342 0%, #558b2f 100%);">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </div>
+                        <h3>General Questions</h3>
+                        <p>Have questions about how Sehyogsetu works? We're here to explain our platform and guide you through every feature.</p>
+                    </div>
+
+                    <div class="help-card">
+                        <div class="help-icon" style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                            </svg>
+                        </div>
+                        <h3>Technical Support</h3>
+                        <p>Facing technical issues? Our support team will help you resolve any problems with the platform quickly.</p>
+                    </div>
+
+                    <div class="help-card">
+                        <div class="help-icon" style="background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3>Feedback & Suggestions</h3>
+                        <p>Your feedback helps us improve. Share your ideas and suggestions to make Sehyogsetu better for everyone.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="response-info">
+                <div class="response-card">
+                    <h3>📧 Response Time</h3>
+                    <p>We typically respond to all inquiries within <strong>24 hours</strong> during business days. For urgent matters, we'll get back to you as soon as possible.</p>
+                </div>
+                <div class="response-card">
+                    <h3>💬 What to Expect</h3>
+                    <p>After submitting your message, you'll receive an automatic confirmation. Our team will review your inquiry and provide a detailed response via email.</p>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>How do I report an issue?</h4>
+                        <p>Simply log in, click on the relevant category (Waste, Animal, Streetlight, Road, or Drainage), upload a photo, add location, and submit. You'll receive a tracking ID immediately.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Is the service free?</h4>
+                        <p>Absolutely! Sehyogsetu is completely free for all citizens. Our goal is to make civic participation accessible to everyone in the community.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sehyogsetu</h3>
+                <p>Your Bridge to Better Community</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: divyanshigupta7521@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sehyogsetu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = {
+                name: form.querySelector('input[type="text"]').value,
+                email: form.querySelector('input[type="email"]').value,
+                phone: form.querySelector('input[type="tel"]').value,
+                subject: form.querySelector('select').value,
+                message: form.querySelector('textarea').value
+            };
+            const mailtoLink = `mailto:divyanshigupta7521@gmail.com?subject=Contact Form: ${formData.subject}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you for contacting us! Your default email client will open. Please send the email to complete your submission.');
+            
+            // Reset form
+            form.reset();
+        }
+    </script>
+    <script>
+        if (!localStorage.getItem('userLoggedIn')) {
+            window.location.href = 'login.html';
+        }
+        window.onload = function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                document.getElementById('userAvatar').textContent = currentUser.fullName.charAt(0).toUpperCase();
+            }
+        };
+        function toggleUserDropdown() {
+            document.getElementById('userDropdownMenu').classList.toggle('show');
+        }
+        function logout() {
+            localStorage.removeItem('userLoggedIn');
+            localStorage.removeItem('currentUser');
+            window.location.href = 'login.html';
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.user-avatar')) {
+                const dropdown = document.getElementById('userDropdownMenu');
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

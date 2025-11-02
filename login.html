@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sehyog Setu</title>
+    <link rel="stylesheet" href="auth.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-left">
+            <div class="auth-content">
+                <div class="logo-section">
+                    <img src="logo.png" alt="Sehyog Setu Logo" class="auth-logo">
+                    <h1>Sehyogsetu</h1>
+                    <p class="tagline">Your Bridge to Better Community</p>
+                </div>
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🌿</div>
+                        <h3>Waste Management</h3>
+                        <p>Track and report waste pickup issues</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🐾</div>
+                        <h3>Animal Welfare</h3>
+                        <p>Report injured or stray animals</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🏙️</div>
+                        <h3>Civic Issues</h3>
+                        <p>Report streetlights, roads, drainage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-right">
+            <div class="auth-form-container">
+                <div id="loginForm" class="auth-form active">
+                    <h2>Welcome Back!</h2>
+                    <p class="form-subtitle">Login to continue making your city better</p>
+
+                    <form onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label>Email or Phone</label>
+                            <input type="text" placeholder="Enter your email or phone number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter your password" required>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox">
+                                <span>Remember me</span>
+                            </label>
+                            <a href="#" class="forgot-link">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="auth-btn">Login</button>
+
+                        <div class="divider">
+                            <span>OR</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="social-btn google">
+                                <svg width="20" height="20" viewBox="0 0 24 24">
+                                    <path fill="#EA4335" d="M5.26620003,9.76452941 C6.19878754,6.93863203 8.85444915,4.90909091 12,4.90909091 C13.6909091,4.90909091 15.2181818,5.50909091 16.4181818,6.49090909 L19.9090909,3 C17.7818182,1.14545455 15.0545455,0 12,0 C7.27006974,0 3.1977497,2.69829785 1.23999023,6.65002441 L5.26620003,9.76452941 Z"/>
+                                    <path fill="#34A853" d="M16.0407269,18.0125889 C14.9509167,18.7163016 13.5660892,19.0909091 12,19.0909091 C8.86648613,19.0909091 6.21911939,17.076871 5.27698177,14.2678769 L1.23746264,17.3349879 C3.19279051,21.2936293 7.26500293,24 12,24 C14.9328362,24 17.7353462,22.9573905 19.834192,20.9995801 L16.0407269,18.0125889 Z"/>
+                                    <path fill="#4A90E2" d="M19.834192,20.9995801 C22.0291676,18.9520994 23.4545455,15.903663 23.4545455,12 C23.4545455,11.2909091 23.3454545,10.5272727 23.1818182,9.81818182 L12,9.81818182 L12,14.4545455 L18.4363636,14.4545455 C18.1187732,16.013626 17.2662994,17.2212117 16.0407269,18.0125889 L19.834192,20.9995801 Z"/>
+                                    <path fill="#FBBC05" d="M5.27698177,14.2678769 C5.03832634,13.556323 4.90909091,12.7937589 4.90909091,12 C4.90909091,11.2182781 5.03443647,10.4668121 5.26620003,9.76452941 L1.23999023,6.65002441 C0.43658717,8.26043162 0,10.0753848 0,12 C0,13.9195484 0.444780743,15.7301709 1.23746264,17.3349879 L5.27698177,14.2678769 Z"/>
+                                </svg>
+                                Login with Google
+                            </button>
+                            <button type="button" class="social-btn facebook">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877F2">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                                Login with Facebook
+                            </button>
+                        </div>
+                    </form>
+
+                    <p class="switch-form">
+                        Don't have an account? <a href="#" onclick="showSignup()">Sign Up</a>
+                    </p>
+                </div>
+                <div id="signupForm" class="auth-form">
+                    <h2>Create Account</h2>
+                    <p class="form-subtitle">Join us in making your community better</p>
+
+                    <form onsubmit="handleSignup(event)">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="Enter your phone number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="Create a password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" placeholder="Confirm your password" required>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" required>
+                                <span>I agree to Terms & Conditions</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="auth-btn">Create Account</button>
+
+                        <div class="divider">
+                            <span>OR</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="social-btn google">
+                                <svg width="20" height="20" viewBox="0 0 24 24">
+                                    <path fill="#EA4335" d="M5.26620003,9.76452941 C6.19878754,6.93863203 8.85444915,4.90909091 12,4.90909091 C13.6909091,4.90909091 15.2181818,5.50909091 16.4181818,6.49090909 L19.9090909,3 C17.7818182,1.14545455 15.0545455,0 12,0 C7.27006974,0 3.1977497,2.69829785 1.23999023,6.65002441 L5.26620003,9.76452941 Z"/>
+                                    <path fill="#34A853" d="M16.0407269,18.0125889 C14.9509167,18.7163016 13.5660892,19.0909091 12,19.0909091 C8.86648613,19.0909091 6.21911939,17.076871 5.27698177,14.2678769 L1.23746264,17.3349879 C3.19279051,21.2936293 7.26500293,24 12,24 C14.9328362,24 17.7353462,22.9573905 19.834192,20.9995801 L16.0407269,18.0125889 Z"/>
+                                    <path fill="#4A90E2" d="M19.834192,20.9995801 C22.0291676,18.9520994 23.4545455,15.903663 23.4545455,12 C23.4545455,11.2909091 23.3454545,10.5272727 23.1818182,9.81818182 L12,9.81818182 L12,14.4545455 L18.4363636,14.4545455 C18.1187732,16.013626 17.2662994,17.2212117 16.0407269,18.0125889 L19.834192,20.9995801 Z"/>
+                                    <path fill="#FBBC05" d="M5.27698177,14.2678769 C5.03832634,13.556323 4.90909091,12.7937589 4.90909091,12 C4.90909091,11.2182781 5.03443647,10.4668121 5.26620003,9.76452941 L1.23999023,6.65002441 C0.43658717,8.26043162 0,10.0753848 0,12 C0,13.9195484 0.444780743,15.7301709 1.23746264,17.3349879 L5.27698177,14.2678769 Z"/>
+                                </svg>
+                                Signup with Google
+                            </button>
+                            <button type="button" class="social-btn facebook">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877F2">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                                Signup with Facebook
+                            </button>
+                        </div>
+                    </form>
+
+                    <p class="switch-form">
+                        Already have an account? <a href="#" onclick="showLogin()">Login</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

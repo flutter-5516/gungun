@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Sehyogsetu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Sehyogsetu Logo" class="logo-img">
+            <span>Sehyogsetu</span>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link active">Services</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="header-right">
+            <div class="notification-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                <div class="notification-badge">3</div>
+            </div>
+            <div class="user-dropdown">
+                <div class="user-avatar" onclick="toggleUserDropdown()" id="userAvatar">U</div>
+                <div class="dropdown-menu" id="userDropdownMenu">
+                    <button onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <div class="page-hero">
+            <h1>Our Services</h1>
+            <p>Comprehensive solutions for civic issues</p>
+        </div>
+
+        <div class="page-content">
+            <section class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon" style="background: #7cb342;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Waste Management</h3>
+                    <p>Report uncollected garbage, schedule pickups, and track waste collection in your area with real-time updates.</p>
+                    <ul class="service-features">
+                        <li>✓ Track pickup schedules</li>
+                        <li>✓ Report missed collections</li>
+                        <li>✓ Waste segregation guidance</li>
+                        <li>✓ Recycling information</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon" style="background: #ff9800;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                        </svg>
+                    </div>
+                    <h3>Animal Welfare</h3>
+                    <p>Report injured or stray animals and get immediate help from local animal welfare authorities and NGOs.</p>
+                    <ul class="service-features">
+                        <li>✓ Emergency animal rescue</li>
+                        <li>✓ Stray animal reporting</li>
+                        <li>✓ Vaccination tracking</li>
+                        <li>✓ Shelter coordination</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon" style="background: #ffc107;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                        </svg>
+                    </div>
+                    <h3>Streetlight Issues</h3>
+                    <p>Report non-functional streetlights to improve safety and visibility in your neighborhood.</p>
+                    <ul class="service-features">
+                        <li>✓ Report broken lights</li>
+                        <li>✓ Track repair status</li>
+                        <li>✓ Area-wise monitoring</li>
+                        <li>✓ Energy efficiency tips</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon" style="background: #ff7043;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        </svg>
+                    </div>
+                    <h3>Road Damage</h3>
+                    <p>Report potholes, cracks, and damaged roads to ensure safer travel for everyone in the community.</p>
+                    <ul class="service-features">
+                        <li>✓ Pothole reporting</li>
+                        <li>✓ Road repair tracking</li>
+                        <li>✓ Safety alerts</li>
+                        <li>✓ Infrastructure updates</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon" style="background: #2196f3;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                        </svg>
+                    </div>
+                    <h3>Drainage Problems</h3>
+                    <p>Report blocked drains, waterlogging, and sewage issues for prompt resolution by authorities.</p>
+                    <ul class="service-features">
+                        <li>✓ Waterlogging alerts</li>
+                        <li>✓ Drain cleaning requests</li>
+                        <li>✓ Sewage complaints</li>
+                        <li>✓ Monsoon preparedness</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon" style="background: #9c27b0;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock assistance for reporting urgent civic issues and tracking their resolution status.</p>
+                    <ul class="service-features">
+                        <li>✓ Emergency reporting</li>
+                        <li>✓ Real-time tracking</li>
+                        <li>✓ Multi-language support</li>
+                        <li>✓ SMS notifications</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="how-it-works">
+                <h2>How Our Services Work</h2>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Report Issue</h3>
+                        <p>Take a photo and report the issue with location details through our easy-to-use interface</p>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Verification</h3>
+                        <p>Our system verifies and categorizes the issue, then notifies the relevant department</p>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Action Taken</h3>
+                        <p>Municipality takes action and you receive real-time updates on the resolution progress</p>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Resolution</h3>
+                        <p>Issue is resolved and marked complete. You can rate the service and provide feedback</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <h2>Be Among the First!</h2>
+                <p>Join us in launching Sehyogsetu and help shape better communities from day one</p>
+                <a href="index.html" class="cta-button">Start Reporting Issues</a>
+            </section>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sehyogsetu</h3>
+                <p>Your Bridge to Better Community</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: divyanshigupta7521@gmail.com</p>
+                <p>Phone: +91 123-456-7890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sehyogsetu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        if (!localStorage.getItem('userLoggedIn')) {
+            window.location.href = 'login.html';
+        }
+        window.onload = function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                document.getElementById('userAvatar').textContent = currentUser.fullName.charAt(0).toUpperCase();
+            }
+        };
+        function toggleUserDropdown() {
+            document.getElementById('userDropdownMenu').classList.toggle('show');
+        }
+        function logout() {
+            localStorage.removeItem('userLoggedIn');
+            localStorage.removeItem('currentUser');
+            window.location.href = 'login.html';
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.user-avatar')) {
+                const dropdown = document.getElementById('userDropdownMenu');
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
